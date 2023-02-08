@@ -1,8 +1,12 @@
-const UserCard = ({ name }) => {
+const UserCard = ({ name, validate, age }) => {
   return (
-    <section>
+    <article>
       <h2>{name}</h2>
-    </section>
+      <p>{validate ? '🤣' : '🥲'}</p>
+      <p>{age <= 18 ? 'puede entrar' : 'no puede entrar'}</p>
+      {age && <p>{age}</p>}
+      <p>{age}</p>
+    </article>
   )
 }
 
