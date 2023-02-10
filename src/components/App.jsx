@@ -1,26 +1,26 @@
-import ButtonsCounter from './ButtonsCounter'
 import ProductCard from './ProductCard'
+import { products } from '../../db.json'
 
 function App () {
+  const mappingProducts = products.map(({ id, title, stock, price, thumbnail }) => ({
+    id,
+    price,
+    name: title,
+    count: stock,
+    photo: thumbnail
+  }))
+
+  console.log(mappingProducts)
+
   return (
     <section className='container py-5'>
       <h2 className='text-center mb-5'>Lista de productos</h2>
       <section className='row'>
-        <aside className='col-4'>
-          <ProductCard name='Redmi Note 1000' count={10} price={100}>
-            <ButtonsCounter />
-          </ProductCard>
-        </aside>
-        <aside className='col-4'>
-          <ProductCard name='Iphone 20' count={30} price={200}>
-            <ButtonsCounter />
-          </ProductCard>
-        </aside>
-        <aside className='col-4'>
-          <ProductCard name='Samsung X'>
-            <ButtonsCounter />
-          </ProductCard>
-        </aside>
+        {mappingProducts.map(product => (
+          <aside key={product.id} className='col-4'>
+            <ProductCard {...product} />
+          </aside>
+        ))}
       </section>
     </section>
   )
