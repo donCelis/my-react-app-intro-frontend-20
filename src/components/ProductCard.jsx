@@ -1,8 +1,5 @@
-import { useState } from 'react'
-
-const ProductCard = ({ name = '', price = 0, count = 0 }) => {
+const ProductCard = ({ name = '', price = 0, count = 0, outletUp, outletDown }) => {
   console.log('Render', name) // siempre que hay un cambio de estado el componente se renderiza
-  const [value, setValue] = useState(0)
 
   return (
     <article className='card'>
@@ -12,16 +9,12 @@ const ProductCard = ({ name = '', price = 0, count = 0 }) => {
         alt={name}
       />
       <div className='card-body'>
+        {outletUp}
         <h2 className='card-title'>{name}</h2>
         <p className='card-text'>Price: {price} MX</p>
         <p className='card-text'>Count: {count}</p>
-        <div className='d-flex align-items-center gap-3'>
-          <button className='btn btn-primary'>-</button>
-          <p className='m-0'>{value}</p>
-          <button className='btn btn-primary' onClick={() => setValue(value + 1)}>
-            +
-          </button>
-        </div>
+        {outletDown}
+        <button disabled={count === 0} className='btn btn-success'>Comprar</button>
       </div>
     </article>
   )

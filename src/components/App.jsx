@@ -1,3 +1,4 @@
+import ButtonsCounter from './ButtonsCounter'
 import ProductCard from './ProductCard'
 
 function App () {
@@ -6,18 +7,19 @@ function App () {
       <h2 className='text-center mb-5'>Lista de productos</h2>
       <section className='row'>
         <aside className='col-4'>
-          <ProductCard
-            name='Redmi Note 1000'
-            count={10}
-            price={100}
-          />
+          <ProductCard name='Redmi Note 1000' count={10} price={100}>
+            <ButtonsCounter />
+          </ProductCard>
         </aside>
         <aside className='col-4'>
-          <ProductCard
-            name='Iphone 20'
-            count={30}
-            price={200}
-          />
+          <ProductCard name='Iphone 20' count={30} price={200}>
+            <ButtonsCounter />
+          </ProductCard>
+        </aside>
+        <aside className='col-4'>
+          <ProductCard name='Samsung X'>
+            <ButtonsCounter />
+          </ProductCard>
         </aside>
       </section>
     </section>
