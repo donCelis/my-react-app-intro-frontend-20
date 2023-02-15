@@ -3,21 +3,19 @@ import { products } from '../../db.json'
 
 function App () {
   const mappingProducts = products.map(
-    ({ title, stock, price, thumbnail, images }, index) => ({
-      /* no deberían usar el index de un array como id */
-      id: index,
+    ({ id, title, stock, price, thumbnail }) => ({
+      id,
       price,
       name: title,
       count: stock,
-      photo: thumbnail,
-      images
+      photo: thumbnail
     })
   )
 
   return (
     <section className='container py-5'>
       <h2 className='text-center mb-5'>Lista de productos</h2>
-      <section className='row'>
+      <section className='row gy-4'>
         {mappingProducts.map((product) => (
           <aside key={product.id} className='col-4'>
             <ProductCard {...product} />

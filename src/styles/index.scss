@@ -15,6 +15,12 @@
   -webkit-text-size-adjust: 100%;
 }
 
+/* images */
+.img-height{
+  height: 14rem;
+  object-fit: cover;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
