@@ -11,7 +11,7 @@ const root = document.getElementById('root')
 
 createRoot(root).render(
   /* El StricMode se borra cuando voy desplegar mi aplicación */
-  <>
+  <StrictMode>
     <App />
-  </>
+  </StrictMode>
 )
