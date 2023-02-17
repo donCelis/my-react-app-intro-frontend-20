@@ -1,14 +1,30 @@
 import ProductCard from './ProductCard'
-import { products } from '../../db.json'
+import { useEffect, useState } from 'react'
+
+const LIMIT = 9
+const SELECT_PROPS = 'id,title,stock,price,thumbnail'
+
+const API_URL = `https://dummyjson.com/products?limit=${LIMIT}&select=${SELECT_PROPS}`
 
 function App () {
+  const [products, setProducts] = useState([])
+
+  const fetchProducts = async () => {
+    const request = await fetch(API_URL)
+    const { products } = await request.json()
+    setProducts(products)
+  }
+
+  useEffect(() => {
+    fetchProducts()
+  }, [])
+
   const mappingProducts = products.map(
-    ({ id, title, stock, price, thumbnail }) => ({
-      id,
-      price,
-      name: title,
-      count: stock,
-      photo: thumbnail
+    (product) => ({
+      ...product,
+      name: product.title,
+      photo: product.thumbnail,
+      isFav: false
     })
   )
 
