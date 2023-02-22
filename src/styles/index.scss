@@ -16,9 +16,16 @@
 }
 
 /* images */
-.img-height{
+.img-height {
   height: 14rem;
   object-fit: cover;
+}
+
+.card-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow-y: hidden;
 }
 
 @media (prefers-color-scheme: light) {
