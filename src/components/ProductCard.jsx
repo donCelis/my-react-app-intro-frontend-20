@@ -1,7 +1,8 @@
 import { ButtonIsFav } from './ButtonIsFav'
 import ButtonsCounter from './ButtonsCounter'
+import { Link } from 'react-router-dom'
 
-const ProductCard = ({ name = '', price = 0, stock = 0, photo, isFav }) => {
+const ProductCard = ({ id, name = '', price = 0, stock = 0, photo, isFav }) => {
   // console.log('Render', name) // siempre que hay un cambio de estado el componente se renderiza
   return (
     <article className='card'>
@@ -14,6 +15,7 @@ const ProductCard = ({ name = '', price = 0, stock = 0, photo, isFav }) => {
           <ButtonsCounter count={stock} />
           <ButtonIsFav isFavProp={isFav} />
         </div>
+        <Link className='btn btn-outline-primary' to={`/product/${id}`}>Ir al producto</Link>
       </div>
     </article>
   )

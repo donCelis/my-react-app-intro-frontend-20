@@ -1,6 +1,6 @@
 import { useProducts } from '../hooks/useProducts'
-import ProductCard from './ProductCard'
-import { SearchForm } from './SearchForm'
+import ProductCard from '../components/ProductCard'
+import { SearchForm } from '../components/SearchForm'
 
 function App () {
   const LIMIT = 9
@@ -43,11 +43,11 @@ function App () {
             </div>
           )}
           {mappingProducts !== 0 &&
-            mappingProducts.map((product) => (
-              <aside key={product.id} className='col-12 col-md-6 col-lg-4'>
-                <ProductCard {...product} />
-              </aside>
-            ))}
+              mappingProducts.map((product) => (
+                <aside key={product.id} className='col-12 col-md-6 col-lg-4'>
+                  <ProductCard {...product} />
+                </aside>
+              ))}
         </section>
       )}
     </section>
